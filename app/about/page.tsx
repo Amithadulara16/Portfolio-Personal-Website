@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { LuCode, LuShield, LuDatabase, LuSmartphone, LuLaptop, LuPalette, LuCpu, LuGlobe, LuRocket, LuGraduationCap, LuTarget, LuArrowRight } from "react-icons/lu";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -14,62 +16,53 @@ const coreSkills = [
 ];
 
 const whatIDo = [
-  { icon: "⚡", title: "Frontend Dev", desc: "Pixel-perfect responsive UIs with React and Next.js." },
-  { icon: "🛡️", title: "Backend Dev", desc: "Robust APIs and server-side logic using Java and Spring." },
-  { icon: "🗄️", title: "Database Design", desc: "Efficient data structuring with MySQL and MongoDB." },
-  { icon: "📱", title: "Mobile Apps", desc: "Exploring modern mobile development alongside web tech." },
+  { icon: <LuCode />, title: "Frontend Dev", desc: "Pixel-perfect responsive UIs with React and Next.js." },
+  { icon: <LuShield />, title: "Backend Dev", desc: "Robust APIs and server-side logic using Java and Spring." },
+  { icon: <LuDatabase />, title: "Database Design", desc: "Efficient data structuring with MySQL and MongoDB." },
+  { icon: <LuSmartphone />, title: "Mobile Apps", desc: "Exploring modern mobile development alongside web tech." },
 ];
 
 const hobbies = [
-  { icon: "💻", label: "Coding" },
-  { icon: "🎨", label: "Website Designs" },
-  { icon: "🤖", label: "AI" },
-  { icon: "🌐", label: "Web Development" },
-  { icon: "🚀", label: "Startups" },
+  { icon: <LuLaptop />, label: "Coding" },
+  { icon: <LuPalette />, label: "Website Designs" },
+  { icon: <LuCpu />, label: "AI" },
+  { icon: <LuGlobe />, label: "Web Development" },
+  { icon: <LuRocket />, label: "Startups" },
 ];
-
-const goalTags = ["Full-Stack Mastery", "UI/UX Design", "Industry Internship", "Open Source"];
 
 // ── Shared style helpers ─────────────────────────────────────────────────────
 
 const glassCard: React.CSSProperties = {
-  background: "rgba(30,41,59,0.7)",
-  border: "1px solid rgba(56,189,248,0.12)",
-  borderRadius: "16px",
-  backdropFilter: "blur(8px)",
+  background: "#ffffff",
+  border: "1px solid #e1e8f0",
+  borderRadius: "14px",
+  boxShadow: "0 4px 16px -2px rgba(15, 23, 42, 0.04)",
 };
 
 const sectionLabel: React.CSSProperties = {
   display: "inline-block",
-  background: "rgba(56,189,248,0.1)",
-  border: "1px solid rgba(56,189,248,0.25)",
-  color: "#22D3EE",
-  padding: "5px 16px",
-  borderRadius: "999px",
+  color: "#1976d2",
   fontSize: "0.75rem",
   fontWeight: "700",
   textTransform: "uppercase",
-  letterSpacing: "0.12em",
-  marginBottom: "12px",
+  letterSpacing: "0.1em",
+  marginBottom: "8px",
 };
 
 const sectionTitle: React.CSSProperties = {
-  fontSize: "1.65rem",
-  fontWeight: "900",
-  background: "linear-gradient(135deg, #E2E8F0 40%, #38BDF8)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
+  fontSize: "1.6rem",
+  fontWeight: "800",
+  color: "#0f172a",
   marginBottom: "6px",
   letterSpacing: "-0.02em",
 };
 
 const divider: React.CSSProperties = {
-  height: "2px",
-  width: "56px",
-  background: "linear-gradient(90deg, #38BDF8, #22D3EE)",
+  height: "3px",
+  width: "48px",
+  background: "#1976d2",
   borderRadius: "999px",
-  marginBottom: "28px",
+  marginBottom: "24px",
 };
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -88,142 +81,105 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
 
 export default function AboutPage() {
   return (
-    <div style={{ minHeight: "100vh", width: "100%", background: "#0F172A", color: "#E2E8F0" }}>
-
-      {/* Ambient orbs */}
-      <div style={{ position: "fixed", top: "10%", right: "5%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(56,189,248,0.05) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-      <div style={{ position: "fixed", bottom: "10%", left: "5%", width: "280px", height: "280px", background: "radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-
-      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "72px 24px 100px", position: "relative", zIndex: 1 }}>
+    <div style={{ minHeight: "100vh", width: "100%", background: "#f5f7fa", color: "#0f172a" }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "60px 24px 96px" }}>
 
         {/* ══ HERO ══ */}
-        <section style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "72px" }}>
+        <section style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "64px" }}>
 
           {/* Avatar */}
-          <div style={{ position: "relative", marginBottom: "28px" }}>
-            <div style={{
-              width: "120px", height: "120px", borderRadius: "50%",
-              background: "linear-gradient(135deg, #0c3050, #083040)",
-              border: "2px solid rgba(56,189,248,0.35)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "3rem", margin: "0 auto",
-            }}>
-              👨‍💻
-            </div>
-            {/* Status badge */}
-            <div style={{
-              position: "absolute", bottom: "-10px", left: "50%", transform: "translateX(-50%)",
-              display: "flex", alignItems: "center", gap: "6px",
-              padding: "4px 14px", borderRadius: "999px",
-              background: "#1E293B", border: "1px solid rgba(56,189,248,0.3)",
-              whiteSpace: "nowrap", fontSize: "0.72rem", fontWeight: "700", color: "#7DD3FC",
-            }}>
-              <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#34D399", display: "inline-block" }} />
-              Open to Internships
-            </div>
+          <div style={{ position: "relative", width: "110px", height: "110px", borderRadius: "16px", overflow: "hidden", border: "2px solid #1976d2", marginBottom: "20px", boxShadow: "0 4px 14px rgba(25, 118, 210, 0.2)" }}>
+            <Image
+              src="/IMG_3738.png"
+              alt="Amitha Dulara"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
 
-          <span style={{ ...sectionLabel, marginTop: "16px" }}>About Me</span>
+          <span style={sectionLabel}>About Me</span>
 
           <h1 style={{
-            fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
+            fontSize: "clamp(2rem, 5vw, 3rem)",
             fontWeight: "900",
             letterSpacing: "-0.02em",
-            background: "linear-gradient(135deg, #E2E8F0 30%, #38BDF8)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            marginBottom: "10px",
+            color: "#0f172a",
+            marginBottom: "8px",
           }}>
             Amitha Dulara
           </h1>
 
-          <p style={{ color: "#64748B", fontSize: "0.95rem", marginBottom: "18px", fontWeight: "500" }}>
-            Undergraduate CS Student · Full-Stack Developer
+          <p style={{ color: "#1976d2", fontSize: "0.95rem", marginBottom: "16px", fontWeight: "600" }}>
+            Software Engineer Intern @ Star Garments (Pvt) Ltd · CS Student @ NSBM
           </p>
 
-          <p style={{ color: "#94A3B8", fontSize: "0.95rem", lineHeight: "1.85", maxWidth: "540px", marginBottom: "28px" }}>
-            I&apos;m Amitha Dulara, an undergraduate Computer Science student passionate about building modern{" "}
-            <span style={{ color: "#7DD3FC", fontWeight: "600" }}>web and mobile applications</span>. I enjoy
-            solving real-world problems through technology and continuously improving my skills in software development.
+          <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: "1.8", maxWidth: "540px", marginBottom: "24px" }}>
+            I&apos;m Amitha Dulara, a Software Engineer Intern at <span style={{ color: "#0f172a", fontWeight: "600" }}>Star Garments (Pvt) Ltd - Katunayake</span> and 3rd-year CS student passionate about building modern{" "}
+            <span style={{ color: "#0f172a", fontWeight: "600" }}>web and mobile applications</span>.
           </p>
 
-          <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", justifyContent: "center" }}>
-            <Link href="/contact" style={{
-              background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-              color: "#0F172A", fontWeight: "800", fontSize: "0.85rem",
-              padding: "10px 24px", borderRadius: "12px", textDecoration: "none",
-              display: "inline-block",
-            }}>
-              💬 Get In Touch
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <Link href="/contact" className="neon-btn">
+              Get In Touch
             </Link>
-            <Link href="/cv" style={{
-              border: "1px solid rgba(56,189,248,0.4)", color: "#7DD3FC",
-              fontWeight: "700", fontSize: "0.85rem", padding: "10px 24px",
-              borderRadius: "12px", background: "transparent", textDecoration: "none",
-              display: "inline-block",
-            }}>
-              📄 View CV
+            <Link href="/cv" className="outline-btn">
+              View CV
             </Link>
           </div>
         </section>
 
         {/* ══ PROFILE SUMMARY ══ */}
-        <section style={{ marginBottom: "56px" }}>
+        <section style={{ marginBottom: "48px" }}>
           <SectionHeader label="Profile" title="Who I Am" />
           <div style={{ ...glassCard, padding: "28px 32px" }}>
-            <p style={{ color: "#94A3B8", lineHeight: "1.9", fontSize: "0.97rem" }}>
-              Motivated full-stack developer with hands-on experience building modern web applications using{" "}
-              <span style={{ color: "#38BDF8" }}>React</span>,{" "}
-              <span style={{ color: "#38BDF8" }}>Next.js</span>, and{" "}
-              <span style={{ color: "#38BDF8" }}>Java Spring Boot</span>. Passionate about clean architecture,
-              performance optimization, and delivering exceptional user experiences. Currently a 3rd year student
-              at <span style={{ color: "#38BDF8" }}>NSBM Green University</span>, with a strong foundation in
-              computer science principles.
+            <p style={{ color: "#475569", lineHeight: "1.8", fontSize: "0.95rem" }}>
+              Motivated software engineer intern with hands-on experience building production-grade web applications using{" "}
+              <span style={{ color: "#0f172a", fontWeight: "600" }}>React</span>,{" "}
+              <span style={{ color: "#0f172a", fontWeight: "600" }}>Next.js</span>, and{" "}
+              <span style={{ color: "#0f172a", fontWeight: "600" }}>Java Spring Boot</span>. Currently undergoing a 6-month Software Engineering Internship at <span style={{ color: "#1976d2", fontWeight: "600" }}>Star Garments (Pvt) Ltd - Katunayake</span> (July 2026 – Present), alongside 3rd-year CS studies at <span style={{ color: "#1976d2", fontWeight: "600" }}>NSBM Green University</span>.
             </p>
           </div>
         </section>
 
         {/* ══ WHAT I DO ══ */}
-        <section style={{ marginBottom: "56px" }}>
+        <section style={{ marginBottom: "48px" }}>
           <SectionHeader label="What I Do" title="My Focus Areas" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px" }}>
             {whatIDo.map((item) => (
-              <div key={item.title} style={{ ...glassCard, padding: "24px" }}>
+              <div key={item.title} className="glass-card" style={{ padding: "24px" }}>
                 <div style={{
-                  width: "44px", height: "44px", borderRadius: "12px",
-                  background: "rgba(56,189,248,0.08)", border: "1px solid rgba(56,189,248,0.18)",
+                  width: "40px", height: "40px", borderRadius: "10px",
+                  background: "#f5f7fa", border: "1px solid #e1e8f0",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: "1.4rem", marginBottom: "14px",
+                  fontSize: "1.2rem", marginBottom: "14px", color: "#1976d2",
                 }}>
                   {item.icon}
                 </div>
-                <h3 style={{ color: "#E2E8F0", fontWeight: "800", fontSize: "0.9rem", marginBottom: "8px" }}>
+                <h3 style={{ color: "#0f172a", fontWeight: "800", fontSize: "0.9rem", marginBottom: "6px" }}>
                   {item.title}
                 </h3>
-                <p style={{ color: "#64748B", fontSize: "0.82rem", lineHeight: "1.65" }}>{item.desc}</p>
+                <p style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: "1.6" }}>{item.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* ══ SKILLS ══ */}
-        <section style={{ marginBottom: "56px" }}>
-          <SectionHeader label="Skills" title="Technical Skills" />
-          <div style={{ ...glassCard, padding: "32px" }}>
+        <section style={{ marginBottom: "48px" }}>
+          <SectionHeader label="Skills" title="Technical Proficiency" />
+          <div style={{ ...glassCard, padding: "28px 32px" }}>
             {coreSkills.map((skill) => (
-              <div key={skill.name} style={{ marginBottom: "20px" }}>
+              <div key={skill.name} style={{ marginBottom: "18px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                  <span style={{ color: "#E2E8F0", fontSize: "0.88rem", fontWeight: "600" }}>{skill.name}</span>
-                  <span style={{ color: "#38BDF8", fontSize: "0.8rem", fontWeight: "700" }}>{skill.level}%</span>
+                  <span style={{ color: "#0f172a", fontSize: "0.88rem", fontWeight: "600" }}>{skill.name}</span>
+                  <span style={{ color: "#1976d2", fontSize: "0.8rem", fontWeight: "700" }}>{skill.level}%</span>
                 </div>
-                <div style={{ height: "5px", background: "rgba(255,255,255,0.05)", borderRadius: "999px", overflow: "hidden" }}>
+                <div style={{ height: "7px", background: "#f5f7fa", borderRadius: "999px", overflow: "hidden", border: "1px solid #e1e8f0" }}>
                   <div style={{
                     height: "100%",
                     width: `${skill.level}%`,
-                    background: "linear-gradient(90deg, #38BDF8, #22D3EE)",
+                    background: "#1976d2",
                     borderRadius: "999px",
-                    boxShadow: "0 0 10px rgba(56,189,248,0.4)",
                   }} />
                 </div>
               </div>
@@ -232,131 +188,46 @@ export default function AboutPage() {
         </section>
 
         {/* ══ EDUCATION ══ */}
-        <section style={{ marginBottom: "56px" }}>
+        <section style={{ marginBottom: "48px" }}>
           <SectionHeader label="Education" title="Academic Background" />
-          <div style={{ position: "relative", paddingLeft: "28px" }}>
-            {/* Timeline rail */}
+          <div className="glass-card" style={{ padding: "24px 28px", display: "flex", gap: "18px", alignItems: "center" }}>
             <div style={{
-              position: "absolute", left: "6px", top: 0, bottom: 0, width: "2px",
-              background: "linear-gradient(to bottom, #38BDF8, rgba(56,189,248,0.1))",
-              borderRadius: "999px",
-            }} />
-
-            <div style={{ position: "relative" }}>
-              {/* Timeline dot */}
-              <div style={{
-                position: "absolute", left: "-23px", top: "24px",
-                width: "14px", height: "14px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-                boxShadow: "0 0 14px rgba(56,189,248,0.6)",
-                border: "3px solid #0F172A",
-              }} />
-
-              <div style={{ ...glassCard, padding: "24px 28px", display: "flex", gap: "18px", alignItems: "flex-start" }}>
-                {/* Icon */}
-                <div style={{
-                  fontSize: "1.8rem",
-                  background: "rgba(56,189,248,0.08)",
-                  border: "1px solid rgba(56,189,248,0.15)",
-                  borderRadius: "12px",
-                  padding: "10px",
-                  lineHeight: 1,
-                  flexShrink: 0,
-                }}>
-                  🎓
-                </div>
-
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px" }}>
-                    <div>
-                      <h3 style={{ color: "#E2E8F0", fontWeight: "800", fontSize: "1rem", marginBottom: "4px" }}>
-                        BSc in Computer Science
-                      </h3>
-                      <div style={{ color: "#38BDF8", fontSize: "0.88rem", fontWeight: "600", marginBottom: "6px" }}>
-                        NSBM Green University
-                      </div>
-                      <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: "1.65" }}>
-                        Currently in{" "}
-                        <span style={{ color: "#22D3EE", fontWeight: "600" }}>3rd Year</span>, focusing on
-                        software engineering, web technologies, and modern development practices.
-                      </p>
-                    </div>
-                    <div style={{ textAlign: "right", flexShrink: 0 }}>
-                      <span style={{
-                        background: "rgba(56,189,248,0.1)",
-                        color: "#22D3EE",
-                        border: "1px solid rgba(56,189,248,0.2)",
-                        padding: "4px 12px",
-                        borderRadius: "999px",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        display: "inline-block",
-                      }}>
-                        In Progress
-                      </span>
-                      <div style={{ color: "#475569", fontSize: "0.75rem", marginTop: "6px" }}>3rd Year</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ GOALS ══ */}
-        <section style={{ marginBottom: "56px" }}>
-          <SectionHeader label="Goals" title="What I'm Working Towards" />
-          <div style={{ ...glassCard, padding: "32px 36px", display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
-            <div style={{
-              width: "56px", height: "56px", flexShrink: 0, borderRadius: "16px",
-              background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "1.8rem", boxShadow: "0 0 24px rgba(56,189,248,0.3)",
+              fontSize: "1.4rem",
+              background: "#f5f7fa",
+              border: "1px solid #e1e8f0",
+              borderRadius: "10px",
+              padding: "10px",
+              lineHeight: 1,
+              flexShrink: 0,
+              color: "#1976d2",
             }}>
-              🎯
+              <LuGraduationCap />
             </div>
-            <div style={{ flex: 1, minWidth: "220px" }}>
-              <h3 style={{ color: "#E2E8F0", fontWeight: "800", fontSize: "1.05rem", marginBottom: "10px" }}>
-                Become a Modern Full-Stack Developer
+            <div style={{ flex: 1 }}>
+              <h3 style={{ color: "#0f172a", fontWeight: "800", fontSize: "1rem", marginBottom: "4px" }}>
+                BSc in Computer Science
               </h3>
-              <p style={{ color: "#94A3B8", fontSize: "0.95rem", lineHeight: "1.85", marginBottom: "16px" }}>
-                My goal is to become a modern full-stack developer with strong{" "}
-                <span style={{ color: "#7DD3FC", fontWeight: "600" }}>UI/UX design skills</span>. I am
-                currently looking for{" "}
-                <span style={{ color: "#22D3EE", fontWeight: "600" }}>internship opportunities</span> to gain
-                industry experience and work on real-world projects that make an impact.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                {goalTags.map((tag) => (
-                  <span key={tag} style={{
-                    background: "rgba(56,189,248,0.1)",
-                    color: "#7DD3FC",
-                    border: "1px solid rgba(56,189,248,0.18)",
-                    padding: "4px 12px",
-                    borderRadius: "999px",
-                    fontSize: "0.78rem",
-                    fontWeight: "600",
-                  }}>
-                    {tag}
-                  </span>
-                ))}
+              <div style={{ color: "#1976d2", fontSize: "0.88rem", fontWeight: "600", marginBottom: "4px" }}>
+                NSBM Green University
               </div>
+              <p style={{ color: "#475569", fontSize: "0.85rem" }}>
+                Currently in <span style={{ color: "#0f172a", fontWeight: "600" }}>3rd Year</span>, focusing on software engineering and web technologies.
+              </p>
             </div>
           </div>
         </section>
 
         {/* ══ HOBBIES ══ */}
-        <section style={{ marginBottom: "56px" }}>
-          <SectionHeader label="Hobbies & Interests" title="Beyond the Code" />
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+        <section style={{ marginBottom: "48px" }}>
+          <SectionHeader label="Hobbies" title="Interests" />
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
             {hobbies.map((h) => (
-              <div key={h.label} style={{
-                ...glassCard,
-                display: "flex", alignItems: "center", gap: "10px",
-                padding: "12px 20px", cursor: "default",
+              <div key={h.label} className="glass-card" style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                padding: "10px 18px", cursor: "default",
               }}>
-                <span style={{ fontSize: "1.2rem" }}>{h.icon}</span>
-                <span style={{ color: "#E2E8F0", fontSize: "0.88rem", fontWeight: "600" }}>{h.label}</span>
+                <span style={{ color: "#1976d2" }}>{h.icon}</span>
+                <span style={{ color: "#0f172a", fontSize: "0.85rem", fontWeight: "600" }}>{h.label}</span>
               </div>
             ))}
           </div>
@@ -366,34 +237,20 @@ export default function AboutPage() {
         <section style={{
           ...glassCard,
           padding: "36px 40px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           textAlign: "center",
-          gap: "20px",
         }}>
-          <div>
-            <h3 style={{ color: "#E2E8F0", fontWeight: "800", fontSize: "1.2rem", marginBottom: "8px" }}>
-              Let&apos;s build something together 🚀
-            </h3>
-            <p style={{ color: "#64748B", fontSize: "0.88rem" }}>
-              Open to internships, collaborations, and exciting projects.
-            </p>
-          </div>
-          <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", justifyContent: "center" }}>
-            <Link href="/contact" style={{
-              background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-              color: "#0F172A", fontWeight: "800", fontSize: "0.85rem",
-              padding: "10px 24px", borderRadius: "12px", textDecoration: "none",
-            }}>
+          <h3 style={{ color: "#0f172a", fontWeight: "800", fontSize: "1.15rem", marginBottom: "8px" }}>
+            Let&apos;s build something together
+          </h3>
+          <p style={{ color: "#64748b", fontSize: "0.88rem", marginBottom: "20px" }}>
+            Open to internships, collaborations, and exciting projects.
+          </p>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
+            <Link href="/contact" className="neon-btn">
               Contact Me
             </Link>
-            <Link href="/projects" style={{
-              border: "1px solid rgba(56,189,248,0.4)", color: "#7DD3FC",
-              fontWeight: "700", fontSize: "0.85rem", padding: "10px 24px",
-              borderRadius: "12px", background: "transparent", textDecoration: "none",
-            }}>
-              See Projects
+            <Link href="/projects" className="outline-btn" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              See Projects <LuArrowRight />
             </Link>
           </div>
         </section>

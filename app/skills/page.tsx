@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { FaReact, FaJava, FaDocker, FaGitAlt, FaFigma, FaLinux, FaNodeJs } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiSpringboot, SiMysql, SiTailwindcss } from "react-icons/si";
+import { LuLayoutGrid, LuServer, LuTerminal, LuSparkles, LuZap, LuShield, LuTrendingUp } from "react-icons/lu";
 
 const skillCategories = [
   {
     category: "Frontend",
-    icon: "🎨",
-    color: "#38BDF8",
+    icon: <LuLayoutGrid />,
     skills: [
       { name: "React", level: 90 },
       { name: "Next.js", level: 85 },
@@ -17,8 +19,7 @@ const skillCategories = [
   },
   {
     category: "Backend",
-    icon: "⚙️",
-    color: "#22D3EE",
+    icon: <LuServer />,
     skills: [
       { name: "Java", level: 85 },
       { name: "Php", level: 60 },
@@ -29,8 +30,7 @@ const skillCategories = [
   },
   {
     category: "Tools & DevOps",
-    icon: "🛠️",
-    color: "#818CF8",
+    icon: <LuTerminal />,
     skills: [
       { name: "Git & GitHub", level: 90 },
       { name: "Docker", level: 65 },
@@ -41,8 +41,7 @@ const skillCategories = [
   },
   {
     category: "Design & Other",
-    icon: "✨",
-    color: "#F472B6",
+    icon: <LuSparkles />,
     skills: [
       { name: "Figma", level: 70 },
       { name: "UI/UX Principles", level: 78 },
@@ -54,39 +53,39 @@ const skillCategories = [
 ];
 
 const techIcons = [
-  { name: "React", emoji: "⚛️" },
-  { name: "Next.js", emoji: "▲" },
-  { name: "TypeScript", emoji: "TS" },
-  { name: "Java", emoji: "☕" },
-  { name: "Node.js", emoji: "🟢" },
-  { name: "Spring", emoji: "🌱" },
-  { name: "Docker", emoji: "🐳" },
-  { name: "Git", emoji: "🌿" },
-  { name: "SQL", emoji: "🗄️" },
-  { name: "Tailwind", emoji: "💨" },
-  { name: "Figma", emoji: "🎨" },
-  { name: "Linux", emoji: "🐧" },
+  { name: "React", icon: <FaReact /> },
+  { name: "Next.js", icon: <SiNextdotjs /> },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "Java", icon: <FaJava /> },
+  { name: "Node.js", icon: <FaNodeJs /> },
+  { name: "Spring", icon: <SiSpringboot /> },
+  { name: "Docker", icon: <FaDocker /> },
+  { name: "Git", icon: <FaGitAlt /> },
+  { name: "SQL", icon: <SiMysql /> },
+  { name: "Tailwind", icon: <SiTailwindcss /> },
+  { name: "Figma", icon: <FaFigma /> },
+  { name: "Linux", icon: <FaLinux /> },
 ];
 
-function SkillBar({ name, level, color }: { name: string; level: number; color: string }) {
+function SkillBar({ name, level }: { name: string; level: number }) {
   return (
     <div style={{ marginBottom: "18px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-        <span style={{ color: "#E2E8F0", fontSize: "0.9rem", fontWeight: "600" }}>{name}</span>
-        <span style={{ color, fontSize: "0.82rem", fontWeight: "700" }}>{level}%</span>
+        <span style={{ color: "#0f172a", fontSize: "0.88rem", fontWeight: "600" }}>{name}</span>
+        <span style={{ color: "#1976d2", fontSize: "0.82rem", fontWeight: "700" }}>{level}%</span>
       </div>
       <div style={{
-        height: "6px",
-        background: "rgba(255,255,255,0.06)",
+        height: "7px",
+        background: "#f5f7fa",
+        border: "1px solid #e1e8f0",
         borderRadius: "999px",
         overflow: "hidden",
       }}>
         <div style={{
           height: "100%",
           width: `${level}%`,
-          background: `linear-gradient(90deg, ${color}, ${color}aa)`,
+          background: "#1976d2",
           borderRadius: "999px",
-          boxShadow: `0 0 10px ${color}66`,
           transition: "width 1s ease",
         }} />
       </div>
@@ -99,44 +98,33 @@ export default function SkillsPage() {
   const active = skillCategories[activeTab];
 
   return (
-    <div style={{ minHeight: "100vh", width: "100%", background: "#0F172A" }}>
-      {/* Ambient orbs */}
-      <div style={{ position: "fixed", top: "20%", left: "0", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-      <div style={{ position: "fixed", bottom: "15%", right: "0", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "80px 24px 100px", position: "relative", zIndex: 1 }}>
+    <div style={{ minHeight: "100vh", width: "100%", background: "#f5f7fa", color: "#0f172a" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px 96px" }}>
 
         {/* ── HEADER ── */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
+        <div style={{ textAlign: "center", marginBottom: "56px" }}>
           <span style={{
             display: "inline-block",
-            background: "rgba(56,189,248,0.1)",
-            border: "1px solid rgba(56,189,248,0.25)",
-            color: "#22D3EE",
-            padding: "6px 18px",
-            borderRadius: "999px",
-            fontSize: "0.78rem",
+            color: "#1976d2",
+            fontSize: "0.75rem",
             fontWeight: "700",
             textTransform: "uppercase",
-            letterSpacing: "0.12em",
-            marginBottom: "24px",
+            letterSpacing: "0.1em",
+            marginBottom: "8px",
           }}>
-            Skills &amp; Technologies
+            Skills &amp; Tech
           </span>
           <h1 style={{
-            fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
+            fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
             fontWeight: "900",
             letterSpacing: "-0.02em",
-            background: "linear-gradient(135deg, #E2E8F0 30%, #38BDF8)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            marginBottom: "20px",
+            color: "#0f172a",
+            marginBottom: "16px",
           }}>
-            My Technical Arsenal
+            Technical Skills
           </h1>
-          <p style={{ color: "#64748B", fontSize: "1rem", maxWidth: "520px", margin: "0 auto", lineHeight: "1.8" }}>
-            A curated set of technologies I use to build fast, scalable, and beautiful products.
+          <p style={{ color: "#64748b", fontSize: "0.95rem", maxWidth: "480px", margin: "0 auto", lineHeight: "1.7" }}>
+            Technologies and tools used to build modern applications.
           </p>
         </div>
 
@@ -144,47 +132,32 @@ export default function SkillsPage() {
         <div style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "12px",
+          gap: "10px",
           justifyContent: "center",
-          marginBottom: "72px",
+          marginBottom: "56px",
         }}>
           {techIcons.map((t) => (
-            <div key={t.name} style={{
-              background: "rgba(30,41,59,0.7)",
-              border: "1px solid rgba(56,189,248,0.15)",
-              borderRadius: "14px",
-              padding: "12px 20px",
+            <div key={t.name} className="glass-card" style={{
+              padding: "10px 18px",
               display: "flex",
               alignItems: "center",
-              gap: "10px",
+              gap: "8px",
               cursor: "default",
-              transition: "all 0.25s ease",
-              backdropFilter: "blur(10px)",
-            }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(56,189,248,0.5)";
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow = "0 8px 25px rgba(56,189,248,0.15)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(56,189,248,0.15)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              <span style={{ fontSize: "1.2rem" }}>{t.emoji}</span>
-              <span style={{ color: "#E2E8F0", fontSize: "0.88rem", fontWeight: "600" }}>{t.name}</span>
+            }}>
+              <span style={{ color: "#1976d2" }}>{t.icon}</span>
+              <span style={{ color: "#0f172a", fontSize: "0.85rem", fontWeight: "600" }}>{t.name}</span>
             </div>
           ))}
         </div>
 
         {/* ── SKILL BARS ── */}
-        <div className="glass-card" style={{ padding: "0", overflow: "hidden", marginBottom: "60px" }}>
+        <div className="glass-card" style={{ padding: "0", overflow: "hidden", marginBottom: "48px" }}>
           {/* Tab bar */}
           <div style={{
             display: "flex",
-            borderBottom: "1px solid rgba(56,189,248,0.1)",
+            borderBottom: "1px solid #e1e8f0",
             overflowX: "auto",
+            background: "#f5f7fa"
           }}>
             {skillCategories.map((cat, i) => (
               <button
@@ -193,14 +166,14 @@ export default function SkillsPage() {
                 style={{
                   flex: 1,
                   minWidth: "120px",
-                  padding: "18px 16px",
-                  background: activeTab === i ? "rgba(56,189,248,0.08)" : "transparent",
+                  padding: "16px 14px",
+                  background: activeTab === i ? "#ffffff" : "transparent",
                   border: "none",
-                  borderBottom: activeTab === i ? `2px solid ${cat.color}` : "2px solid transparent",
-                  color: activeTab === i ? cat.color : "#64748B",
+                  borderBottom: activeTab === i ? "3px solid #1976d2" : "3px solid transparent",
+                  color: activeTab === i ? "#1976d2" : "#64748b",
                   cursor: "pointer",
-                  fontWeight: "600",
-                  fontSize: "0.88rem",
+                  fontWeight: "700",
+                  fontSize: "0.85rem",
                   transition: "all 0.2s ease",
                   display: "flex",
                   alignItems: "center",
@@ -215,9 +188,9 @@ export default function SkillsPage() {
           </div>
 
           {/* Skill bars content */}
-          <div style={{ padding: "36px 40px" }}>
+          <div style={{ padding: "32px 36px" }}>
             {active.skills.map((s) => (
-              <SkillBar key={s.name} name={s.name} level={s.level} color={active.color} />
+              <SkillBar key={s.name} name={s.name} level={s.level} />
             ))}
           </div>
         </div>
@@ -226,27 +199,24 @@ export default function SkillsPage() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(3,1fr)",
-          gap: "20px",
+          gap: "16px",
         }}>
           {[
-            { label: "Frontend Proficiency", value: "90%", icon: "⚡" },
-            { label: "Backend Proficiency", value: "82%", icon: "🛡️" },
-            { label: "Learning Velocity", value: "∞", icon: "🚀" },
+            { label: "Frontend Proficiency", value: "90%", icon: <LuZap /> },
+            { label: "Backend Proficiency", value: "82%", icon: <LuShield /> },
+            { label: "Learning Velocity", value: "∞", icon: <LuTrendingUp /> },
           ].map((s) => (
-            <div key={s.label} className="glass-card" style={{ padding: "32px 24px", textAlign: "center" }}>
-              <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{s.icon}</div>
+            <div key={s.label} className="glass-card" style={{ padding: "28px 20px", textAlign: "center" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: "8px", color: "#1976d2", display: "flex", justifyContent: "center" }}>{s.icon}</div>
               <div style={{
                 fontSize: "2.2rem",
-                fontWeight: "800",
-                background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                marginBottom: "8px",
+                fontWeight: "900",
+                color: "#0f172a",
+                marginBottom: "4px",
               }}>
                 {s.value}
               </div>
-              <div style={{ color: "#64748B", fontSize: "0.83rem", fontWeight: "500", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              <div style={{ color: "#64748b", fontSize: "0.78rem", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 {s.label}
               </div>
             </div>

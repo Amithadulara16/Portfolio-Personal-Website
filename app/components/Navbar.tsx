@@ -30,20 +30,20 @@ export default function Navbar() {
                 left: 0,
                 width: "100%",
                 zIndex: 100,
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
                 background: scrolled
-                    ? "rgba(15, 23, 42, 0.92)"
-                    : "rgba(15, 23, 42, 0.6)",
-                backdropFilter: "blur(20px)",
+                    ? "rgba(255, 255, 255, 0.95)"
+                    : "rgba(255, 255, 255, 0.85)",
+                backdropFilter: "blur(12px)",
                 borderBottom: scrolled
-                    ? "1px solid rgba(56, 189, 248, 0.2)"
+                    ? "1px solid #e1e8f0"
                     : "1px solid transparent",
-                boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.4)" : "none",
+                boxShadow: scrolled ? "0 2px 10px rgba(15, 23, 42, 0.03)" : "none",
             }}
         >
             <div
                 style={{
-                    maxWidth: "1200px",
+                    maxWidth: "1100px",
                     margin: "0 auto",
                     padding: "0 24px",
                     height: "70px",
@@ -57,17 +57,17 @@ export default function Navbar() {
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                         <div
                             style={{
-                                width: "36px",
-                                height: "36px",
-                                borderRadius: "50%",
-                                background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
+                                width: "34px",
+                                height: "34px",
+                                borderRadius: "8px",
+                                background: "#1976d2",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                fontSize: "1rem",
+                                fontSize: "0.95rem",
                                 fontWeight: "800",
-                                color: "#0F172A",
-                                boxShadow: "0 0 15px rgba(56, 189, 248, 0.5)",
+                                color: "#ffffff",
+                                boxShadow: "0 2px 8px rgba(25, 118, 210, 0.3)",
                             }}
                         >
                             A
@@ -76,12 +76,9 @@ export default function Navbar() {
                             style={{
                                 fontFamily: "'Space Grotesk', sans-serif",
                                 fontWeight: "700",
-                                fontSize: "1.2rem",
-                                background: "linear-gradient(135deg, #38BDF8, #22D3EE)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                letterSpacing: "0.02em",
+                                fontSize: "1.15rem",
+                                color: "#0f172a",
+                                letterSpacing: "0.01em",
                             }}
                         >
                             devbyamith
@@ -106,7 +103,6 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
-
                 </ul>
 
                 {/* Mobile Button */}
@@ -115,8 +111,8 @@ export default function Navbar() {
                     style={{
                         background: "none",
                         border: "none",
-                        color: "#38BDF8",
-                        fontSize: "1.5rem",
+                        color: "#0f172a",
+                        fontSize: "1.4rem",
                         cursor: "pointer",
                         display: "none",
                         padding: "4px",
@@ -132,10 +128,10 @@ export default function Navbar() {
             {isOpen && (
                 <div
                     style={{
-                        background: "rgba(15, 23, 42, 0.97)",
-                        backdropFilter: "blur(20px)",
-                        borderTop: "1px solid rgba(56, 189, 248, 0.15)",
+                        background: "#ffffff",
+                        borderTop: "1px solid #e1e8f0",
                         padding: "16px 24px 24px",
+                        boxShadow: "0 10px 20px rgba(15, 23, 42, 0.05)",
                     }}
                 >
                     <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "4px" }}>
@@ -147,19 +143,19 @@ export default function Navbar() {
                                     style={{
                                         display: "block",
                                         padding: "12px 16px",
-                                        color: "#94A3B8",
+                                        color: "#334155",
                                         textDecoration: "none",
-                                        borderRadius: "10px",
+                                        borderRadius: "8px",
                                         fontSize: "0.95rem",
                                         fontWeight: "500",
                                         transition: "all 0.2s ease",
                                     }}
                                     onMouseEnter={(e) => {
-                                        (e.target as HTMLAnchorElement).style.color = "#38BDF8";
-                                        (e.target as HTMLAnchorElement).style.background = "rgba(56, 189, 248, 0.08)";
+                                        (e.target as HTMLAnchorElement).style.color = "#1976d2";
+                                        (e.target as HTMLAnchorElement).style.background = "#f5f7fa";
                                     }}
                                     onMouseLeave={(e) => {
-                                        (e.target as HTMLAnchorElement).style.color = "#94A3B8";
+                                        (e.target as HTMLAnchorElement).style.color = "#334155";
                                         (e.target as HTMLAnchorElement).style.background = "transparent";
                                     }}
                                 >
